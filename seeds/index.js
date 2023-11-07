@@ -3,7 +3,10 @@ const Campground = require("../models/campground");
 const cities = require("./cities");
 const { places, descriptors } = require("./seedHelpers");
 
-mongoose.connect("mongodb://127.0.0.1:27017/Campify");
+mongoose.connect("mongodb://127.0.0.1:27017/Campify", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 /*useNewUrlParser,
 useUnifiedTopology,
 useFindAndModify,
@@ -31,7 +34,7 @@ const seedDB = async () => {
       image: "http://source.unsplash.com/collection/484351",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatum accusamus architecto numquam, consequatur corrupti sapiente nesciunt atque animi? Numquam cum placeat est animi, error ipsum aliquam tenetur similique fuga!",
-      price
+      price,
     });
     await camp.save();
   }
